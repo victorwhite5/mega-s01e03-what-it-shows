@@ -18,12 +18,27 @@ signature: 'victorwhite5 / Codex / S01E03'
 
 The [original incident page](/kb/incidents/4471) calls this one known issue with one queued fix.
 Its own rendered cause table shows two mechanisms. The parser fix alone cannot correct the booking form's hint.
-The findings below describe the supplied export; they do not claim a production fix or a live queue count.
+The findings below describe the supplied export. The later engineering update supplies the closure outcomes;
+the export counts remain a historical snapshot rather than a live queue count.
 
 <Callout kind="warn">
   Keep parser and form-hint work separate. A matching subject line, an intake tag, or the word “known”
-  does not prove that two reports need the same fix. Neither issue has been verified as fixed.
+  does not prove that two reports need the same fix. The desk closed the two mechanisms with different outcomes.
 </Callout>
+
+## Engineering update and closure
+
+After the first submission, the [course desk update](https://hq.mega.dev/challenges/what-it-shows)
+reported that #4471 closed on **5 October**:
+
+- **Parser — fixed.** The engineering change is `fix(dates): parse dd/mm for eu locales`.
+  The [parser issue](https://github.com/victorwhite5/mega-s01e03-what-it-shows/issues/1) is closed as completed.
+- **Hint — won't fix.** Engineering retired the booking-v3 form rather than implementing a hint correction.
+  The [hint issue](https://github.com/victorwhite5/mega-s01e03-what-it-shows/issues/2) is closed as not planned.
+
+These are the desk's reported outcomes, preserved in `evidence/desk-update.json`.
+This review did not independently test production. Retirement is not a shipped hint fix, and completing
+the triage documentation alone was not sufficient evidence for closing both issues as completed.
 
 ## Counts from the export
 
@@ -53,8 +68,9 @@ one-day descriptions. Keep that attribution qualified until their original input
 
 For day-first tenants, booking-v3 prints `MM/DD/YYYY`, while its form reads dates in the tenant's day-first order.
 For example, a user follows that hint and enters `04/07/2026` for 7 April; a day-first form reads 4 July.
-Correct the field instruction and its examples to agree with the form parser. Changing the shared parser
-without checking this form is not proof that the hint problem is fixed.
+Before retirement, the field instruction and its examples needed to agree with the form parser.
+Changing the shared parser without checking this form would not prove that the hint problem was fixed.
+The desk instead reports the form retired and the hint outcome as won't fix.
 
 Reproduce on the form channel for Alder Physio (`de-DE`), Copper Studio (`es-ES`) or Pale Harbour (`pt-PT`).
 Check the hint shown, original input and parsed value. App and email reports from those tenants still use the
@@ -81,9 +97,10 @@ one cause. An unknown tenant cannot be safely assigned a cause; look up its loca
 
 ## Follow-up and ownership
 
-The [parser issue](https://github.com/victorwhite5/mega-s01e03-what-it-shows/issues/1) and
+The closed [parser issue](https://github.com/victorwhite5/mega-s01e03-what-it-shows/issues/1) and
 [hint issue](https://github.com/victorwhite5/mega-s01e03-what-it-shows/issues/2) each carry their export count,
-report IDs, reproduction steps and verification criteria. Keep the one-day descriptions visible for investigation.
+report IDs, reproduction steps, verification criteria and their distinct engineering outcomes.
+Keep the one-day descriptions visible if the desk receives further timing failures after the parser fix.
 Before future triage decisions, rebuild from a fresh desk export and check any new support evidence in those issues.
 
 <RenderStamp {signature} />

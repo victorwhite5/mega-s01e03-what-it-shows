@@ -39,4 +39,11 @@ The repeated export row for R-41251 counts once.
 - Check all three booking-v3 tenants, month-first control locales and unaffected booking-v2 forms.
 - Keep this issue separate from the shared-parser change and verify both independently.
 
-No fix is claimed. Matching subject lines or a “known” label do not justify merging different mechanisms.
+## Engineering outcome and closure
+
+After the first submission, the course's engineering update reported #4471 closed on 5 October:
+hint **WON'T FIX**, because the **booking-v3 form was retired**.
+Source: https://hq.mega.dev/challenges/what-it-shows; the captured update is in `evidence/desk-update.json`.
+This issue is closed as **not planned**, rather than completed: retirement removed the form, and engineering
+did not implement the hint correction. The reproduction and verification criteria above describe the historical
+defect in the export. They do not claim that a hint fix shipped or that this review tested production.

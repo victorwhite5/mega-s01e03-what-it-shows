@@ -44,4 +44,11 @@ Do not count them a second time or assert a confirmed timezone defect from this 
 - Independently verify booking-v3's hint; a shared-parser fix does not demonstrate that issue is fixed.
 - Investigate the five flagged reports before claiming their underlying failures are resolved.
 
-No production fix is claimed. The label “known” and a queued fix are not closure evidence.
+## Engineering outcome and closure
+
+After the first submission, the course's engineering update reported #4471 closed on 5 October:
+parser **FIXED**, with change `fix(dates): parse dd/mm for eu locales`.
+Source: https://hq.mega.dev/challenges/what-it-shows; the captured update is in `evidence/desk-update.json`.
+This issue is closed as **completed** on that evidence, rather than merely because the review was published.
+The export-based analysis and verification criteria above describe the pre-fix reports; this review did not
+independently test production or establish the true causes of the five flagged timing descriptions.

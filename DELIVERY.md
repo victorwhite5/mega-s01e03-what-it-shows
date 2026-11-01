@@ -16,8 +16,11 @@ a proposed replacement decision and a reproducible local SvelteKit/mdsvex build.
 
 The export contains 427 rows representing 412 unique reports: 379 parser and 33 form-hint reports.
 Five anomalous bodies remain flagged in the parser count according to the supplied rules, with follow-up
-required rather than an unsupported claim that their true cause is known. The review does not claim either
-problem is fixed, and it treats these counts as an export snapshot rather than a live desk total.
+required rather than an unsupported claim that their true cause is known. The counts remain an export
+snapshot rather than a live desk total. The course's subsequent engineering update reports #4471 closed
+on 5 October: the parser is fixed (`fix(dates): parse dd/mm for eu locales`), while the hint is won't fix
+because booking-v3 was retired. Issue #1 is completed; issue #2 is not planned. The review records those
+reported outcomes without claiming an independent production test. See `evidence/desk-update.json`.
 
 The existing accepted decision and historical incident page remain intact. Read their rendered components
 alongside the prose: the cause table and triage explorer contradict the old single-issue, subject-only guidance.
