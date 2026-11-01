@@ -31,7 +31,8 @@ The findings below describe the supplied export; they do not claim a production 
 
 <CauseTable ticket={4471} />
 
-The table marks the smaller cause as outside #4471's majority cause. It needs its own issue.
+The table describes the export before the separate public issues were opened. It marks the smaller cause
+as outside #4471's majority cause; that mechanism is now tracked independently in the issue below.
 Counts above are computed from the reports and tenant directory at build time, rather than copied into this page.
 The audit command writes each cause's report IDs and a CSV, so each issue's count is reproducible.
 
@@ -80,8 +81,9 @@ one cause. An unknown tenant cannot be safely assigned a cause; look up its loca
 
 ## Follow-up and ownership
 
-Track the parser and hint mechanisms in separate GitHub issues, each with its export count, report IDs,
-reproduction steps and verification criteria. Keep the one-day descriptions visible for investigation.
+The [parser issue](https://github.com/victorwhite5/mega-s01e03-what-it-shows/issues/1) and
+[hint issue](https://github.com/victorwhite5/mega-s01e03-what-it-shows/issues/2) each carry their export count,
+report IDs, reproduction steps and verification criteria. Keep the one-day descriptions visible for investigation.
 Before future triage decisions, rebuild from a fresh desk export and check any new support evidence in those issues.
 
 <RenderStamp {signature} />

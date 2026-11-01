@@ -5,6 +5,8 @@ a proposed replacement decision and a reproducible local SvelteKit/mdsvex build.
 
 ## Review
 
+- Parser issue: https://github.com/victorwhite5/mega-s01e03-what-it-shows/issues/1.
+- Hint issue: https://github.com/victorwhite5/mega-s01e03-what-it-shows/issues/2.
 - Signed incident source: `src/routes/kb/incidents/4471-review/+page.svx`.
 - Rendered incident: `docs/kb/incidents/4471-review/index.html` (created by the build).
 - Proposed decision: `src/routes/kb/decisions/0002-dedupe-by-cause/+page.svx`.
