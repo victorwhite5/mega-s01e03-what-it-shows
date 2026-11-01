@@ -1,0 +1,87 @@
+---
+layout: runbook
+title: '#4471 review · separate parser and form-hint problems'
+owner: victorwhite5
+status: reviewed
+reviewed: 2026-11-01
+signature: 'victorwhite5 / Codex / S01E03'
+---
+
+<script>
+  import Callout from '#lib/kb/Callout.svelte';
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import IncidentAudit from '#lib/kb/IncidentAudit.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+The [original incident page](/kb/incidents/4471) calls this one known issue with one queued fix.
+Its own rendered cause table shows two mechanisms. The parser fix alone cannot correct the booking form's hint.
+The findings below describe the supplied export; they do not claim a production fix or a live queue count.
+
+<Callout kind="warn">
+  Keep parser and form-hint work separate. A matching subject line, an intake tag, or the word “known”
+  does not prove that two reports need the same fix. Neither issue has been verified as fixed.
+</Callout>
+
+## Counts from the export
+
+<IncidentAudit />
+
+<CauseTable ticket={4471} />
+
+The table marks the smaller cause as outside #4471's majority cause. It needs its own issue.
+Counts above are computed from the reports and tenant directory at build time, rather than copied into this page.
+The audit command writes each cause's report IDs and a CSV, so each issue's count is reproducible.
+
+## Parser: month-first interpretation for day-first tenants
+
+The shared parser treats numeric dates as month first. A tenant whose locale is day first can submit
+`07/04/2026` for 7 April and receive 4 July. Tenant settings, rather than the reporter's browser locale,
+determine how the date should be read.
+
+Reproduce with a day-first tenant on the app or email path, or the booking-v2 form.
+Capture the entered date, stored date and generated invite before changing a booking.
+The expected result preserves the date intended under the tenant's locale.
+
+The parser issue covers every report the supplied classifier calls `parser`, including the explicitly flagged
+one-day descriptions. Keep that attribution qualified until their original inputs and timestamps are checked.
+
+## Hint: booking-v3 instructs the opposite date order
+
+For day-first tenants, booking-v3 prints `MM/DD/YYYY`, while its form reads dates in the tenant's day-first order.
+For example, a user follows that hint and enters `04/07/2026` for 7 April; a day-first form reads 4 July.
+Correct the field instruction and its examples to agree with the form parser. Changing the shared parser
+without checking this form is not proof that the hint problem is fixed.
+
+Reproduce on the form channel for Alder Physio (`de-DE`), Copper Studio (`es-ES`) or Pale Harbour (`pt-PT`).
+Check the hint shown, original input and parsed value. App and email reports from those tenants still use the
+parser classification. A tenant name alone is insufficient to group a report.
+
+## What the timeline measures
+
+<QueueTimeline ticket={4471} />
+
+Read received and merged bars separately. A large merge bar can collect older reports.
+Later reports continue entering the known ticket, so “known” is a queue label, not evidence of recovery.
+Report counts are not counts of affected users or proof of an incident's complete scope.
+
+## Triage after this review
+
+The [accepted subject-only decision](/kb/decisions/0001-dedupe-by-subject) is preserved as historical evidence.
+Its age and the live examples below make it unsafe as a cause test.
+The [proposed replacement](/kb/decisions/0002-dedupe-by-cause) explains how to group by mechanism and record uncertainty.
+
+<DedupeExplorer />
+
+Same tenant and subject can conceal different causes when the channel changes. Different subjects can share
+one cause. An unknown tenant cannot be safely assigned a cause; look up its locale and form before merging.
+
+## Follow-up and ownership
+
+Track the parser and hint mechanisms in separate GitHub issues, each with its export count, report IDs,
+reproduction steps and verification criteria. Keep the one-day descriptions visible for investigation.
+Before future triage decisions, rebuild from a fresh desk export and check any new support evidence in those issues.
+
+<RenderStamp {signature} />

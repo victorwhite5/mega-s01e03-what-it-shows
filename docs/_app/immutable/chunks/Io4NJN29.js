@@ -1,0 +1,10 @@
+import{t as e}from"./DK3Fl9T5.js";import{E as t,L as n,r,t as i,w as a,z as o}from"./2D1cxmbv.js";import"./CnzFfRdU.js";import{t as s}from"./Dh63krjs.js";import{t as c}from"./rJt-tN60.js";import{t as l}from"./BwKdStxl.js";var u=e({default:()=>y,metadata:()=>d}),d={layout:`runbook`,title:`0002 · Proposed replacement: group reports by cause`,owner:`victorwhite5`,status:`proposed`,reviewed:`2026-11-01T00:00:00.000Z`,signature:`victorwhite5 / Codex / S01E03`},{layout:f,title:p,owner:m,status:h,reviewed:g,signature:_}=d,v=t(`<h2>Context</h2> <p>Decision <a href="/kb/decisions/0001-dedupe-by-subject">0001</a> accepted subject-only merging.
+The <a href="/kb/incidents/4471-review">review of #4471</a> shows why identical words can conceal different mechanisms.
+This proposal preserves the accepted decision and recommends replacing its rule; it does not claim the desk has adopted it.</p> <h2>Proposed decision</h2> <p>Use subject text to search, then compare the underlying failure before merging.
+For the date reports, look up tenant locale and booking form and retain the channel.
+Do not classify by browser locale or intake tag alone. Use the executable cause rules for the export’s grouping,
+and retain contradictory report bodies as uncertainty requiring investigation.</p> <p>Merge only when the cause matches. Keep parser and booking-v3 hint work in separate issues, with report IDs
+and one count per unique report. When tenant details or the mechanism are missing, leave the cause unplaced
+and request original input, displayed hint, stored timestamp and timezone evidence.</p> <!> <h2>Consequences</h2> <p>Triage takes a lookup and a reading of the report rather than a subject match alone.
+Engineering receives a thread per mechanism with an auditable count. Support keeps conflicting evidence visible
+and revisits old guidance when rendered components disagree with prose.</p> <!>`,1);function y(e,t){let u=i(t,[`children`,`$$slots`,`$$events`,`$$legacy`]);s(e,r(()=>u,()=>d,{children:(e,t)=>{var r=v(),i=o(n(r),10);c(i,{});var s=o(i,6);l(s,{get signature(){return _}}),a(e,r)},$$slots:{default:!0}}))}export{y as n,u as t};

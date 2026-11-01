@@ -1,0 +1,40 @@
+---
+layout: runbook
+title: '0002 · Proposed replacement: group reports by cause'
+owner: victorwhite5
+status: proposed
+reviewed: 2026-11-01
+signature: 'victorwhite5 / Codex / S01E03'
+---
+
+<script>
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+## Context
+
+Decision [0001](/kb/decisions/0001-dedupe-by-subject) accepted subject-only merging.
+The [review of #4471](/kb/incidents/4471-review) shows why identical words can conceal different mechanisms.
+This proposal preserves the accepted decision and recommends replacing its rule; it does not claim the desk has adopted it.
+
+## Proposed decision
+
+Use subject text to search, then compare the underlying failure before merging.
+For the date reports, look up tenant locale and booking form and retain the channel.
+Do not classify by browser locale or intake tag alone. Use the executable cause rules for the export's grouping,
+and retain contradictory report bodies as uncertainty requiring investigation.
+
+Merge only when the cause matches. Keep parser and booking-v3 hint work in separate issues, with report IDs
+and one count per unique report. When tenant details or the mechanism are missing, leave the cause unplaced
+and request original input, displayed hint, stored timestamp and timezone evidence.
+
+<DedupeExplorer />
+
+## Consequences
+
+Triage takes a lookup and a reading of the report rather than a subject match alone.
+Engineering receives a thread per mechanism with an auditable count. Support keeps conflicting evidence visible
+and revisits old guidance when rendered components disagree with prose.
+
+<RenderStamp {signature} />
