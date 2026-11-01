@@ -1,16 +1,17 @@
 {
   "status": "passed",
   "initial": {
-    "verdict": "different causes — keep apart",
+    "verdict": "different causes \u2014 keep apart",
     "stamp": "desk ref DR-XEX7-SCXQ",
     "rows": [
-      "parser\t379\tparser ×356 · hint ×23\t11\t2026-04-01 → 2026-10-04\t#4471",
-      "hint\t33\thint ×18 · parser ×15\t3\t2026-04-17 → 2026-09-22\tnot this ticket — no ticket of its own"
+      "parser\t379\tparser \u00d7356 \u00b7 hint \u00d723\t11\t2026-04-01 \u2192 2026-10-04\t#4471",
+      "hint\t33\thint \u00d718 \u00b7 parser \u00d715\t3\t2026-04-17 \u2192 2026-09-22\tnot this ticket \u2014 no ticket of its own"
     ],
     "controls": 4
   },
   "interactiveCauseChange": true,
   "newPagesIndexed": true,
   "oldDecisionStaleBanner": true,
-  "uncaughtExceptions": 0
+  "uncaughtExceptions": 0,
+  "stage": "Initial interactive checks before the course-issued signature correction; see final-render-check.json for the final signed render."
 }

@@ -10,7 +10,7 @@ a proposed replacement decision and a reproducible local SvelteKit/mdsvex build.
 - Signed incident source: `src/routes/kb/incidents/4471-review/+page.svx`.
 - Rendered incident: `docs/kb/incidents/4471-review/index.html` (created by the build).
 - Proposed decision: `src/routes/kb/decisions/0002-dedupe-by-cause/+page.svx`.
-- Signature: `victorwhite5 / Codex / S01E03`; the existing RenderStamp component derives its desk reference.
+- Signature: the exact course-issued ticket in each added page's frontmatter; RenderStamp derives its desk reference.
 - Audit: `evidence/report-audit.json`, `evidence/parser-reports.csv`, `evidence/hint-reports.csv`.
 - Issue bodies: `issue-drafts/parser.md` and `issue-drafts/hint.md`.
 
@@ -34,6 +34,7 @@ Use Node.js 24 or newer:
 npm ci
 npm run audit:reports
 npm run build
+npm run verify:render
 npm run preview
 ```
 

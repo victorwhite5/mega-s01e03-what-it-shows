@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "pages": [
+    {
+      "route": "incidents/4471-review",
+      "deskRef": "DR-RHB8-1VMJ",
+      "signedSourceAndRenderAgree": true
+    },
+    {
+      "route": "decisions/0002-dedupe-by-cause",
+      "deskRef": "DR-RHB8-1VMJ",
+      "signedSourceAndRenderAgree": true
+    }
+  ],
+  "countsAgreeWithAudit": true,
+  "engineeringOutcomesRendered": true,
+  "browserChecked": true
+}

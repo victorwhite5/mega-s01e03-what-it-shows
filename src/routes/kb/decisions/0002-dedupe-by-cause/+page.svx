@@ -4,7 +4,7 @@ title: '0002 · Proposed replacement: group reports by cause'
 owner: victorwhite5
 status: proposed
 reviewed: 2026-11-01
-signature: 'victorwhite5 / Codex / S01E03'
+signature: 'v1.eyJzdWIiOiIxMTQxIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTM1NTA5NTcsImV4cCI6MTc5MzYzNzM1N30.o9twFUpW641IXWlFHNsgblIMiRDXOoRRwtyFTSiuHZg'
 ---
 
 <script>
